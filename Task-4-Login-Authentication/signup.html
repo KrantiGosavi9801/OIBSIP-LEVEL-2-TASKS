@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sign Up Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Sign Up</h1>
+            <form id="myForm">
+                <div class="txt_field">
+                    <input type="text" name="text" required>
+                    <span></span>
+                    <label>Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="text" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name="text" required>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="password" id="pass" name="password" pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required title="Password must contain at least one number, 
+                    one alphabet, one symbol, and be at 
+                    least 8 characters long">
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" id="Cpass" name="password" pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required title="Password must contain at least one number, 
+                    one alphabet, one symbol, and be at 
+                    least 8 characters long">
+                    <span id="error-message" class="error-message"></span>
+                    <label>Confirm Password</label>
+                </div>
+                    <a href="signup.html">
+                        <input name="submit" type="Submit" value="Login">
+                    </a>
+                <script>
+                    document.getElementById("myForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    var pass = document.getElementById("pass").value;
+                    var Cpass = document.getElementById("Cpass").value;
+                    if (pass === Cpass) {
+                    // Passwords match, you can submit the form or perform any other action
+                    document.getElementById("error-message").innerText = "";
+                    alert("Form submitted successfully!");
+                    document.getElementById("myForm").reset();
+                    window.location.href = "index.html";
+                    } else {
+                    // Passwords do not match, display an error message
+                    document.getElementById("error-message").innerText = "Passwords do not match";
+                    }
+                    });
+                    
+
+                </script>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
